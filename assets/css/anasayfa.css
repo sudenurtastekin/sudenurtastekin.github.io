@@ -6,7 +6,7 @@
 
 body {
   width: 440px;
-  background-color: #cc5168;
+  background-color: #52121d;
   display: flex;
   font-family: "Space Grotesk", sans-serif;
 }
@@ -80,11 +80,10 @@ body {
 
 .border2 {
   width: 95px;
-  margin-left: 166px;
+  margin-left: 160px;
   margin-top: -9px;
-  
   border: 1px solid rgb(189, 234, 27);
-  ;
+
 }
 
 .border3 {
