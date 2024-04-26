@@ -464,7 +464,7 @@ ul {
 }
 
 .details-content {
-  padding-top: 168px;
+  padding-top: 130px;
 }
 
 .details-content h2 {
@@ -492,9 +492,8 @@ ul {
 .content-details {
   margin-top: 60px;
   width: 600px;
-  padding: 40px;
   padding-bottom: 16px;
-  margin-inline: auto;
+  margin-inline: 80px;
   border-radius: 16px;
 }
 
