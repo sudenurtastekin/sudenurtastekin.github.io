@@ -106,7 +106,7 @@ a {
 
 .header {
   max-width: 375px;
-  background-image: url(/assets/img/full-hero.png);
+  background-image: url(/dine-restaurant/assets/img/full-hero.png);
   background-size: 160%;
   background-position-y: -80%;
   background-position-x: 47%;
@@ -301,7 +301,7 @@ hr {
 /* menu end  */
 /* reservation start  */
 .reservation-container {
-  background-image: url(/assets/img/mobil-reservation.jpg);
+  background-image: url(/dine-restaurant/assets/img/mobil-reservation.jpg);
   background-size: 100%;
   background-position-y: 50%;
   background-position-x: 50%;
@@ -601,7 +601,7 @@ hr {
   /* menu end  */
   /* reservation start  */
   .reservation-container {
-    background-image: url(/assets/img/tablet-reservation.jpg);
+    background-image: url(/dine-restaurant/assets/img/tablet-reservation.jpg);
     background-size: 150%;
     background-position-y: 50%;
     background-position-x: 50%;
@@ -864,7 +864,7 @@ hr {
   }
 
   .reservation-container {
-    background-image: url(/assets/img/desktop-reservation.png);
+    background-image: url(/dine-restaurant/assets/img/desktop-reservation.png);
     display: flex;
     padding: 95px 165px;
   }
