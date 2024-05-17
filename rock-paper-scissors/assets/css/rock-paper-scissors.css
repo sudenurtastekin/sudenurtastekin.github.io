@@ -65,6 +65,11 @@ body {
   background-color: #1d3151;
 }
 
+a{
+  text-decoration: none;
+  color: white;
+}
+
 /* MOBIL VERS START */
 /* index start */
 .container {
