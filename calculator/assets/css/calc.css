@@ -193,7 +193,20 @@ button p {
   letter-spacing: -0.46666666865348816px;
   text-align: center;
   padding: 13px 32px;
+  width: 200px;
+  color: #ffffff;
+
+
 }
+
+.reset-button button{
+  background-color: #647198;
+  border: none;
+  height: 65px;
+  box-shadow: none;
+}
+
+
 
 .conclusion {
   width: 227px;
@@ -208,6 +221,18 @@ button p {
   letter-spacing: -0.46666666865348816px;
   text-align: center;
   padding: 13px 32px;
+  color: #ffffff;
+
+}
+
+.conclusion button{
+  border: none;
+  background-color:#D03F2F;
+  height: 65px;
+  box-shadow: none;
+
+
+
 }
 
 /* Theme 1 */
@@ -321,6 +346,14 @@ body.theme-3 {
 
 .theme-3 .cal-output {
   background-color: #1E0936;
+}
+
+.hesapSonuc {
+  font-family: system-ui;
+  width: 200px;
+  padding: 3px 10px;
+  text-align: right;
+  min-height: 35px;
 }
 
 .theme-3 .cal-output-txt {
@@ -496,6 +529,10 @@ body.theme-3 {
     color: #ffffff;
   }
 
+  .hesapSonuc{
+    width: 169px;
+  }
+
   .reset-button h3 {
     font-size: 28px;
     font-weight: 700;
@@ -503,6 +540,7 @@ body.theme-3 {
     letter-spacing: -0.46666666865348816px;
     text-align: center;
     padding: 13px 32px;
+    margin-inline: -50px;
   }
 
   .conclusion {
