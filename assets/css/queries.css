@@ -1,0 +1,201 @@
+@media screen and (width <=820px) {
+    .container {
+        max-width: 700px;
+    }
+
+    .hero img {
+        width: 322px;
+    }
+
+    .content {
+        padding: 60px 0;
+
+        & h1 {
+            font-size: 6rem;
+            width: 460px;
+        }
+
+        & p {
+            width: 370px;
+        }
+    }
+
+    .hero {
+        & .oval {
+            right: -102px;
+            top: 319px;
+        }
+
+        & .circles {
+            top: 0;
+        }
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skillsSection {
+        & .skillCircles {
+            top: 400px;
+        }
+    }
+
+    .img{
+        width: 337px;
+    }
+
+    .img:hover {
+        & img {
+            opacity: 1;
+        }
+
+        & .view {
+            display: none;
+        }
+    }
+
+    .projectGallery {
+        gap: 60px 22px;
+    }
+
+    .project {
+        & h3 {
+            margin: 10px 0 7px;
+        }
+
+        & p {
+            margin: 0 0 20px;
+        }
+    }
+
+    .viewBottom {
+        display: flex;
+        gap: 30px;
+
+        & a {
+            cursor: pointer;
+            border-bottom: 2px solid var(--green);
+            text-transform: uppercase;
+            letter-spacing: 0.19rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 2.2rem;
+            color: var(--white);
+        }
+
+        & a:hover {
+            color: var(--green);
+        }
+    }
+
+    .footerContainer {
+        width: 100%;
+    }
+
+    .footerTop {
+        text-align: center;
+        margin: 0 auto;
+        width: 445px;
+        flex-direction: column;
+        gap: 48px;
+    }
+}
+
+@media screen and (width <=450px) {
+    .container {
+        max-width: 343px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+
+        & .circles {
+            left: -342px;
+            top: 10px;
+        }
+    }
+
+    .hero .oval {
+        top: 120px;
+    }
+
+    .hero img {
+        position: relative;
+        z-index: 90;
+        width: 175px;
+        background: linear-gradient(180deg, rgba(36, 36, 36, 0.0001) 0.65%, #242424 100%);
+        top: -120px;
+        left: 25%;
+    }
+
+    .content {
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin: -60px auto 80px;
+
+        & h1 {
+            font-size: 3.4rem;
+            width: 350px;
+            line-height: 3.4rem;
+        }
+
+        p {
+            width: 350px;
+        }
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+        gap: 24px;
+        border-bottom: 1px solid var(--white);
+        padding: 40px 0;
+    }
+
+    .skillsSection {
+        & .skillCircles {
+            top: 711px;
+        }
+    }
+
+    .projects {
+        & h1 {
+            font-size: 3.4rem;
+            line-height: 3.4rem;
+        }
+    }
+
+    .projectGallery {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+        padding: 40px 0 80px;
+    }
+
+    .footerTop {
+        max-width: 343px;
+    }
+
+    .contactText {
+        max-width: 343px;
+    }
+
+    .contactText p {
+        width: 343px
+    }
+
+    .contactForm {
+        max-width: 343px;
+
+        & button {
+            left: 217px;
+        }
+    }
+}
