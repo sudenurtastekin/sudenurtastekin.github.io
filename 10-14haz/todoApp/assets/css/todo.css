@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: #15101C;
+  font-family: "Inter", sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.container {
+  margin: 0 auto;
+  width: 432px;
+  margin-top: 120px;
+  margin-inline: 504px;
+}
+
+input {
+  width: 381px;
+  padding: 11px 15px;
+  border: 1px solid #3E1671;
+  border-radius: 10px;
+  background-color: transparent;
+  color: white;
+
+}
+
+#ekleBtn {
+  background-color: #9E78CF;
+  border-radius: 10px;
+  box-shadow: none;
+  border: solid #9E78CF;
+  width: 40px;
+  height: 46px;
+}
+
+#ekleBtn img {
+  width: 22px;
+}
+
+#silBtn{
+  border: none;
+  background: none;
+  background-color: transparent;
+}
+
+#silBtn img{
+  width: 45px;
+}
+
+form {
+  display: flex;
+  gap: 11px;
+  margin-bottom: 59px;
+}
+
+.hero h4 {
+  color: white;
+  margin-bottom: 17px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+}
+
+li {
+  list-style: none;
+  padding: 22px 21px;
+  background-color: #1D1825;
+  color: #9E78CF;
+  margin-bottom: 16px;
+  border-radius: 10px;
+
+
+
+}
+
+.liste {
+  padding: 0px;
+}
+
+.liste li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.liste li+li {
+  margin-top: 10px;
+}
+
+.liste li span {
+  flex-grow: 1;
+}
+
+.liste button {
+  background-color: transparent;
+  border: 0;
+}
+
+.liste button:active {
+  padding-top: 3px;
+}
