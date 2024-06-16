@@ -26,6 +26,7 @@ productForm.addEventListener("submit", handleProductForm);
 function renderProductDetails() {
   allProducts.innerHTML = '';
   let total = 0;
+  let categories = {};
 
   for (let i = 0; i < productList.length; i++) {
     total += productList[i].price;
@@ -36,19 +37,30 @@ function renderProductDetails() {
       <p>Kategori: ${productList[i].category}</p><br>
       <img src="${productList[i].image}" alt="${productList[i].name}" />
     `;
+
+    
+    if (!categories[productList[i].category]) {
+      categories[productList[i].category] = [];
+    }
+    categories[productList[i].category].push(productList[i]);
   }
 
   sonucToplam.textContent = `${total} TL`;
 
   categoryProducts.innerHTML = '';
-  for (let i = 0; i < productList.length; i++) {
-    categoryProducts.innerHTML += ` 
-      <h4>${productList[i].name}</h4>
-      <p>${productList[i].description}</p>
-      <p>Fiyat: ${productList[i].price} TL</p><br>
-      <p>Kategori: ${productList[i].category}</p><br>
-      <img src="${productList[i].image}" alt="${productList[i].name}" />
-    `;
+  for (let category in categories) {
+    let sectionHTML = `<div><h3>${category}</h3>`;
+    for (let i = 0; i < categories[category].length; i++) {
+      let product = categories[category][i];
+      sectionHTML += `
+        <h4>${product.name}</h4>
+        <p>${product.description}</p>
+        <p>Fiyat: ${product.price} TL</p><br>
+        <img src="${product.image}" alt="${product.name}" />
+      `;
+    }
+    sectionHTML += '</div>';
+    categoryProducts.innerHTML += sectionHTML;
   }
 }
 
@@ -67,25 +79,32 @@ function displayAllProducts() {
 }
 
 function chosenCategory(selectedCategory) {
-  categoryProducts.innerHTML = ' ';
   if (selectedCategory === "Tüm") {
-    displayAllProducts();
+    renderProductDetails();
     return;
   }
 
-  if (selectedCategory) {
-    for (let i = 0; i < products.length; i++) {
-      let categories = products[i].categories.split(', ');
-      for (let j = 0; j < categories.length; j++) {
-        if (categories[j] === selectedCategory) {
-          let productDiv = '<div>' + products[i].name + ' - Kategoriler: ' + products[i].categories + '</div>';
-          categoryProducts.innerHTML += productDiv;
-          break;
-        }
-      }
+  categoryProducts.innerHTML = ' ';
+  let selectedProducts = [];
+  for (let i = 0; i < productList.length; i++) {
+    if (productList[i].category === selectedCategory) {
+      selectedProducts.push(productList[i]);
     }
-  } else {
-    categoryProducts.innerHTML = 'Lütfen bir kategori seçin.';
+  }
+
+  for (let i = 0; i < selectedProducts.length; i++) {
+    let product = selectedProducts[i];
+    categoryProducts.innerHTML += `
+      <h4>${product.name}</h4>
+      <p>${product.description}</p>
+      <p>Fiyat: ${product.price} TL</p><br>
+      <p>Kategori: ${product.category}</p><br>
+      <img src="${product.image}" alt="${product.name}" />
+    `;
+  }
+
+  if (selectedProducts.length === 0) {
+    categoryProducts.innerHTML = 'Bu kategoride ürün yok.';
   }
 }
 
