@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/ageCalc/assets/css/ageCalc.css">
+  <script src="/ageCalc/assets/js/ageCalc.js" defer></script>
+</head>
+
+<body>
+  <div class="screenConotainer">
+    <div class="container">
+      <form class="form">
+        <div class="formItems">
+          <div class="formItem">
+            <h2>DAY</h2>
+            <input type="number" name="day" class="day" placeholder="DD" required>
+          </div>
+          <div class="formItem">
+            <h2>MONTH</h2>
+            <input type="number" name="month" class="month" placeholder="MM" required>
+          </div>
+          <div class="formItem">
+            <h2>YEAR</h2>
+            <input type="number" name="year" class="year" placeholder="YYYY" required>
+          </div>
+        </div>
+
+        <div class="buttonArea">
+          <button class="ekleBtn"><img src="/ageCalc/assets/img/ok.png" alt="ok"></button>
+          <hr>
+        </div>
+      </form>
+
+      <div class="datesArea">
+        <span class="currentlyYear">-- <h1>years</h1></span>
+        <span class="currentlyMonth">-- <h1>months</h1></span>
+        <span class="currentlyDay">-- <h1>days</h1></span>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
