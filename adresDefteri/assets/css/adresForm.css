@@ -1,55 +1,149 @@
-*/
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-/*
-  2. Remove default margin
-*/
-* {
-  margin: 0;
-}
-/*
-  Typographic tweaks!
-  3. Add accessible line-height
-  4. Improve text rendering
-*/
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/*
-  5. Improve media defaults
-*/
-img, picture, video, canvas, svg {
+
+.container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin: 20px;
+}
+
+h1 {
+  color: green;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .name,
+.contact-form .surname,
+.contact-form .phone,
+.contact-form .message {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #f9f9f9;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #aaa;
+  outline: none;
+  background-color: #fff;
+}
+
+.contact-form .button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contact-form button {
+  background-color: #5cb85c;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-form button:hover {
+  background-color: #4cae4c;
+}
+
+.clear {
   display: block;
-  max-width: 100%;
-}
-/*
-  6. Remove built-in form typography styles
-*/
-input, button, textarea, select {
-  font: inherit;
-}
-/*
-  7. Avoid text overflows
-*/
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
 }
 
-.container { 
-  width: 570px;
-  margin: 0 auto;
+.clear:hover {
+  background-color: #c9302c;
 }
 
-.person {
-  margin: 10px;
-  background-color: aliceblue;
+.print {
+  margin-top: 20px;
 }
 
-.clear,  #submit{ 
-  background-color: black;
-  color: antiquewhite;
-  border-radius: 6px;
-  margin-top: 10px;
+.contact {
+  background-color: #fafafa;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.contact h3 {
+  margin: 0;
+  color: #333;
+}
+
+.contact p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.contactEditControls {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.contactEditControls a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 18px;
+  margin-left: 10px;
+  
+}
+
+.contactEditControls a:hover {
+  color: #0056b3;
+}
+
+.contactEditControls svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
