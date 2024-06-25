@@ -15,28 +15,33 @@
 
 <body>
   <div class="container">
-    <h1>Alışveriş Sepeti</h1>
-
-    <form class="productForm">
-      <label>Ürün İsmi: <input required type="text" name="name" id="product-name"></label>
-      <label>Kategori: <input required type="text" name="category" id="product-category"></label>
-      <label>Renk: <input required type="text" name="color" id="product-color"></label>
-      <label>Fiyat: <input required type="number" name="price" id="product-price"></label>
-      <button>Ekle</button>
-    </form>
-
+    <header class="productsHeader">
+      <h1>Alışveriş Sepeti</h1>
+      <button id="addProductBtn">Ekle</button>
+    </header>
     <div class="product-list">
       <h2>Ürünler Listesi</h2>
       <div class="products"></div>
     </div>
-
     <div class="cart-list">
       <h2>Alışveriş Sepeti</h2>
       <div class="cart"></div>
+      <button id="clearCartBtn">Sepeti Boşalt</button>
       <div class="total-amount"></div>
     </div>
   </div>
-
+  <dialog id="modal">
+    <h2 class="modalAddNew">Ürün Ekle</h2>
+    <h2 class="modalEdit">Ürünü Düzenle</h2>
+    <form method="dialog" autocomplete="off" id="addProductForm">
+      <p><input required type="text" name="name" placeholder="Ürün İsmi"></p>
+      <p><input required type="text" name="category" placeholder="Kategori"></p>
+      <p><input required type="text" name="color" placeholder="Renk"></p>
+      <p><input required type="number" name="price" placeholder="Fiyat"></p>
+      <p><button class="modalAddNew">Ekle</button> <button class="modalEdit">Kaydet</button> <button type="button" onclick="addProductForm.reset();modal.close();">Vazgeç</button></p>
+      <input type="hidden" name="id" value="">
+    </form>
+  </dialog>
 
 </body>
 
