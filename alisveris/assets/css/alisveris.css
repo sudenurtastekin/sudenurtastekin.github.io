@@ -40,11 +40,16 @@ h6 {
   overflow-wrap: break-word;
 }
 
-
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.productsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .product-list,
@@ -64,85 +69,105 @@ h6 {
   font-weight: bold;
 }
 
-.container {
-  width: 370px;
-  margin: 0 auto;
-
-}
-
 h1 {
   font-weight: 700;
   color: limegreen;
-  margin-bottom: 50px;
-  margin-inline: auto;
+  text-align: center;
 }
 
+button {
+  background-color: limegreen;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+
+#clearCartBtn {
+  background-color: red;
+  margin-top: 10px;
+}
+
+#clearCartBtn:hover {
+  background-color: darkred;
+}
 
 input {
-  display: flex;
-  margin-bottom: 20px;
-  width: 330px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.productForm{
-  margin: 0 auto;
-  align-items: center;
-  width: 330px;
-
-}
-
-.productForm button{
-  width: 330px;
+.productForm button {
+  width: 100%;
   background-color: green;
   color: white;
   border-radius: 6px;
   border: 1px solid lightgreen;
-  
 }
 
-h2{
-  font-weight: 700;
-  color: limegreen;
-  margin-bottom: 10px;
-  margin-inline: auto;
-}
-
-.added{
+.added {
   margin-bottom: 20px;
   border-bottom: 1px solid black;
   margin-top: 10px;
 }
-.added p{
+
+.added p {
   margin-bottom: 10px;
 }
 
-.added h4{
+.added h4 {
   color: rgb(39, 84, 39);
   font-size: 22px;
 }
 
-.totalPrice{
+.totalPrice {
   color: brown;
 }
 
-.urunList{
+.urunList {
   border-bottom: 1px solid black;
   margin-top: 10px;
-
 }
 
-.urunList h4{
+.urunList h4 {
   color: rgb(39, 84, 39);
   font-size: 22px;
 }
 
-.secim{
-  margin-block: 20px;
-  background-color: brown;
-  color: white;
-  border: 1px solid #a52a;
-  border-radius: 6px;
+.productEditControls {
+  display: flex;
+  gap: 10px;
 }
 
+.productEditControls button,
+.productEditControls a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 
+.productEditControls svg {
+  width: 16px;
+  height: 16px;
+  fill: black;
+}
 
+dialog {
+  margin: auto;
+  padding: 10px;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
