@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Adres Defteri</title>
   <link rel="stylesheet" href="/adresDefteri/assets/css/adresForm.css">
   <script src="/adresDefteri/assets/js/adres.js" defer></script>
 </head>
@@ -12,25 +12,33 @@
 <body>
   <div class="container">
     <form class="contact-form">
-      <H1>ADRES DEFTERİ</H1>
+      <h1>ADRES DEFTERİ</h1>
+      <input type="hidden" name="id" id="id">
       <div class="name">
-        <label for="Ad">Adınız</label> <br>
-        <input required  name="ad" id="ad" type="text">
+        <label for="ad">Adınız</label> <br>
+        <input required name="ad" id="ad" type="text">
       </div>
 
       <div class="surname">
-        <label for="Soyad">Soyadınız</label> <br>
-        <input required  name="soyad" id="soyad" type="text">
+        <label for="soyad">Soyadınız</label> <br>
+        <input required name="soyad" id="soyad" type="text">
       </div>
 
       <div class="phone">
-        <label for="e-posta">Telefon Numaranız</label> <br>
-        <input required  name="phone" id="phone" type="tel">
+        <label for="phone">Telefon Numaranız</label> <br>
+        <input required name="phone" id="phone" type="tel">
       </div>
 
+      
+      <div class="email">
+        <label for="email">E-posta Adresiniz</label> <br>
+        <input required  name="email" id="email" type="email">
+      </div>
+
+
       <div class="message">
-        <label for="mesaj">Adresiniz</label> <br>
-        <textarea required  name="message" id="massage" cols="38" rows="5"></textarea>
+        <label for="message">Adresiniz</label> <br>
+        <textarea required name="message" id="message" cols="38" rows="5"></textarea>
       </div>
       <div class="button">
         <button name="submit" id="submit" type="submit">Gönder</button>
