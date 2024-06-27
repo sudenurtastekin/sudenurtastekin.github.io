@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+ 
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+dialog {
+    border: none;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, textarea, select {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+li img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+a {
+    margin-left: 10px;
+    color: #007BFF;
+    cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+}
+
+.postEditControls a svg {
+  width: 16px;
+  fill: black;
+  display: inline;
+
+}
