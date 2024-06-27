@@ -1,67 +1,126 @@
-let blogForm = document.querySelector('#blogForm');
-let allPosts = document.querySelector('#allPosts');
-let categoryPosts = document.querySelector('#categoryPosts');
-let clearLocalStorageBtn = document.querySelector('#clearLocalStorage');
+let posts = [];
+let id = 0;
 
-let getPostsFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem('blogPosts')) || [];
-};
+if (localStorage.posts) {
+  posts = JSON.parse(localStorage.posts);
+  renderPosts();
+}
 
-let savePostsToLocalStorage = (posts) => {
-  localStorage.setItem('blogPosts', JSON.stringify(posts));
-};
+if (localStorage.id) {
+  id = Number(localStorage.id);
+}
 
+function generateId() {
+  id++;
+  localStorage.id = id;
+  return id;
+}
 
-let displayPosts = () => {
-  let posts = getPostsFromLocalStorage();
+function save() {
+  localStorage.posts = JSON.stringify(posts);
+}
+
+function renderPosts() {
   allPosts.innerHTML = '';
   categoryPosts.innerHTML = '';
 
   let categoryLists = {};
 
-  for (let i = 0; i < posts.length; i++) {
-    let post = posts[i];
-    let listItem = `${post.title} - ${post.author}<br>`;
+  posts.forEach(post => {
+    let listItem = `<li data-postid="${post.id}">
+            <img src="${post.image}" alt="${post.title}" style="width: 50px; height: 50px;">
+            ${post.title} - ${post.author} 
+            <a href="#" class="editPostBtn" data-postid="${post.id}">Düzenle</a>
+            <a href="#" class="deletePostBtn" data-postid="${post.id}">Sil</a>
+        </li>`;
     allPosts.innerHTML += listItem;
 
-    if (!(post.category in categoryLists)) {
+    if (!categoryLists[post.category]) {
       categoryLists[post.category] = [];
     }
-    categoryLists[post.category].push(`<li>${post.title} - ${post.author}</li>`);
-  }
+    categoryLists[post.category].push(`<li><img src="${post.image}" alt="${post.title}" style="width: 50px; height: 50px;"> ${post.title} - ${post.author} <p>Açıklama:  ${post.description} </p> </li>`);
+  });
 
-  for (let category in categoryLists) {
-    let categoryHTML = `<h3>${category.toUpperCase()}</h3><ul>`;
-    for (let i = 0; i < categoryLists[category].length; i++) {
-      categoryHTML += categoryLists[category][i];
+  posts.forEach(post => {
+    if (categoryLists[post.category]) {
+      let categoryHTML = `<h3>${post.category.toUpperCase()}</h3><ul>`;
+      categoryLists[post.category].forEach(item => {
+        categoryHTML += item;
+      });
+      categoryHTML += '</ul>';
+      categoryPosts.innerHTML += categoryHTML;
+      delete categoryLists[post.category];
     }
-    categoryHTML += '</ul>';
-    categoryPosts.innerHTML += categoryHTML;
+  });
+
+  document.querySelectorAll('.editPostBtn').forEach(btn => btn.addEventListener('click', handleEditBtn));
+  document.querySelectorAll('.deletePostBtn').forEach(btn => btn.addEventListener('click', handleDeleteBtn));
+}
+
+addPostBtn.addEventListener('click', () => {
+  modal.classList.remove('editModal');
+  document.querySelector('input[name="id"]').value = "";
+  modal.showModal();
+});
+
+blogForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  let formData = new FormData(blogForm);
+  let formObj = Object.fromEntries(formData);
+  blogForm.reset();
+
+  if (formObj.id !== '') { // güncelle
+    let post = posts.find(x => x.id === Number(formObj.id));
+    post.title = formObj.title;
+    post.description = formObj.description;
+    post.author = formObj.author;
+    post.category = formObj.category;
+    post.image = formObj.image;
+  } else { // yeni ekle
+    formObj.id = generateId();
+    posts.push(formObj);
   }
-};
 
-blogForm.addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  let title = this.title.value;
-  let description = this.description.value;
-  let author = this.author.value;
-  let category = this.category.value;
-
-  let newPost = { title, description, author, category };
-
-  let posts = getPostsFromLocalStorage();
-  posts.push(newPost);
-  savePostsToLocalStorage(posts);
-
-  displayPosts();
-
-  this.reset();
+  save();
+  renderPosts();
+  modal.close();
 });
 
-clearLocalStorageBtn.addEventListener('click', function () {
-  localStorage.removeItem('blogPosts');
-  displayPosts();
+document.querySelector('#clearLocalStorageBtn').addEventListener('click', function () {
+  if (!confirm('Emin misin?')) {
+    return;
+  }
+  localStorage.removeItem('posts');
+  localStorage.removeItem('id');
+  posts = [];
+  id = 0;
+  renderPosts();
 });
 
-displayPosts();
+function handleDeleteBtn(e) {
+  e.preventDefault();
+
+  if (!confirm('Emin misin?')) {
+    return;
+  }
+  posts = posts.filter(x => x.id !== Number(this.dataset.postid));
+
+  save();
+  renderPosts();
+}
+
+function handleEditBtn(e) {
+  e.preventDefault();
+  modal.classList.add('editModal');
+  let postId = Number(this.dataset.postid);
+  let post = posts.find(x => x.id === postId);
+  document.querySelector('input[name="id"]').value = post.id;
+  document.querySelector('input[name="title"]').value = post.title;
+  document.querySelector('textarea[name="description"]').value = post.description;
+  document.querySelector('input[name="author"]').value = post.author;
+  document.querySelector('select[name="category"]').value = post.category;
+  document.querySelector('input[name="image"]').value = post.image;
+  modal.showModal();
+}
+
+renderPosts();
