@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gelir Gider</title>
   <script src="/10-14haz/gelir-gider/assets/js/gelirgider.js" defer></script>
+  <link rel="stylesheet" href="/10-14haz/gelir-gider/assets/css/gelirGider.css">
+
 </head>
 <body>
-  <form class="gelirgider">
-    
+   <form class="gelirgider">
     <div class="gelir">
       <label class="gelir">Gelir Miktarınız: </label>
       <input type="number" name="gelir" placeholder="Gelir Miktarı">
@@ -39,6 +40,23 @@
     <h3>Kar/Zarar</h3>
     <div class="karZararSonuc">Kar/Zarar: <span id="karZararToplam"></span></div>
   </div>
-
+  <dialog id="modal">
+    <h2 class="modalAddNew">Gelir Ekle</h2>
+    <h2 class="modalEdit">Gelir Düzenle</h2>
+    <h2 class="modalGiderAddNew">Gider Ekle</h2>
+    <h2 class="modalGiderEdit">Gider Düzenle</h2>
+  
+    <form method="dialog" autocomplete="off" id="editForm">
+      <p><input required type="number" name="amount" placeholder="Miktar"></p>
+      <p>
+        <button class="modelAddNew">Ekle</button>
+        <button class="modelEdit">Kaydet</button>
+        <button class="modelGiderAddNew">Ekle</button>
+        <button class="modelGiderEdit">Kaydet</button>
+        <button type="button" onclick="editForm.reset();modal.close();">Vazgeç</button>
+      </p>
+      <input type="hidden" name="id" value="">
+    </form>
+  </dialog>
 </body>
 </html>
