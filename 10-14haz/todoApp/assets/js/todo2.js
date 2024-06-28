@@ -47,6 +47,10 @@ function save() {
 }
 
 function clearList() {
+  if(!confirm('Emin misin?')) {
+    return;
+  }
+
   localStorage.clear();
   todosList = [];
   todoCounter = 0;
@@ -64,6 +68,7 @@ function openEditDialog(index) {
 
   modal.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
+    
     todosList[index].todo = todoInput.value;
     renderList();
     save();
@@ -74,6 +79,9 @@ function openEditDialog(index) {
 }
 
 function deleteTodo(index) {
+  if(!confirm('Emin misin?')) {
+    return;
+  }
   todosList.splice(index, 1);
   todoCounter--;
   todoCount.innerText = `${todoCounter}`;
