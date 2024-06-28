@@ -123,7 +123,7 @@ function renderCategoryDetails(selectedCategory = null) {
       categoryProducts.innerHTML = 'Bu kategoride ürün yok.';
     }
   } else {
-    for (let category in categories) {
+    for (let category of categories) {
       let sectionHTML = `<div><h3>${category}</h3>`;
       for (let i = 0; i < categories[category].length; i++) {
         let product = categories[category][i];
