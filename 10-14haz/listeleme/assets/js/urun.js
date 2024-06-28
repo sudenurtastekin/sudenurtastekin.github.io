@@ -104,39 +104,40 @@ function renderCategoryDetails(selectedCategory = null) {
       categories[category] = [];
     }
     categories[category].push(productList[i]);
-  }
-
+  } 
  if (selectedCategory) {
-  if (categories[selectedCategory]) {
-    let productsInCategory = categories[selectedCategory];
-    for (let product of productsInCategory) {
-      categoryProducts.innerHTML += `
-        <h4>${product.name}</h4>
-        <p>${product.description}</p>
-        <p>Fiyat: ${product.price} TL</p><br>
-        <p>Kategori: ${product.category}</p><br>
-        <img src="${product.image}" alt="${product.name}" />
-      `;
+    if (categories[selectedCategory]) {
+      let productsInCategory = categories[selectedCategory];
+      for (let i = 0; i < productsInCategory.length; i++) {
+        let product = productsInCategory[i];
+        categoryProducts.innerHTML += `
+          <h4>${product.name}</h4>
+          <p>${product.description}</p>
+          <p>Fiyat: ${product.price} TL</p><br>
+          <p>Kategori: ${product.category}</p><br>
+          <img src="${product.image}" alt="${product.name}" />
+        `;
+      }
+    } else {
+      categoryProducts.innerHTML = 'Bu kategoride ürün yok.';
     }
   } else {
-    categoryProducts.innerHTML = 'Bu kategoride ürün yok.';
-  }
-} else {
-  for (let category of Object.keys(categories)) {
-    let sectionHTML = `<div><h3>${category}</h3>`;
-    for (let product of categories[category]) {
-      sectionHTML += `
-        <h4>${product.name}</h4>
-        <p>${product.description}</p>
-        <p>Fiyat: ${product.price} TL</p><br>
-        <img src="${product.image}" alt="${product.name}" />
-      `;
+    for (let category of categories) {
+      let sectionHTML = `<div><h3>${category}</h3>`;
+      for (let i = 0; i < categories[category].length; i++) {
+        let product = categories[category][i];
+        sectionHTML += `
+          <h4>${product.name}</h4>
+          <p>${product.description}</p>
+          <p>Fiyat: ${product.price} TL</p><br>
+          <img src="${product.image}" alt="${product.name}" />
+        `;
+      }
+      sectionHTML += '</div>';
+      categoryProducts.innerHTML += sectionHTML;
     }
-    sectionHTML += '</div>';
-    categoryProducts.innerHTML += sectionHTML;
   }
 }
-
 
 function save() {
   localStorage.productList = JSON.stringify(productList);
