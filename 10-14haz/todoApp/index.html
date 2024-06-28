@@ -15,44 +15,35 @@
 </head>
 
 <body>
-  <div class="container">
-    <form class="todoForm">
-      <input name="todo" required type="text" id="todoTxt" placeholder="Add a new task"> <button id="ekleBtn"><img
-          src="/10-14haz/todoApp/assets/img/add.svg" alt=""></button>   <button id="silBtn"><img src="/10-14haz/todoApp/assets/img/trash.svg" alt=""></button>
-    </form>
-    <div class="hero">
-      <h4>Tasks to do - <span class="activeTodoCount">0</span></h4>
-      <ul class="liste"></ul>
-
+ <div class="container">
+    <div class="header">
+      <div class="title">
+        <img src="./assets/img/logo.svg" alt="">
+        <img src="./assets/img/theme.svg" alt="">
+      </div>
+      <form class="todoForm">
+        <input type="text" name="todo" id="todo" autocomplete="off" required placeholder="Create a new todo…">
+        <button class="submit" name="submit" id="submit" type="submit">Gönder</button>
+      </form>
     </div>
-
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="hero">
+      <div class="todos"></div>
+      <div class="todos-end">
+        <div class="todos-end-area">
+          <p class="todoCount">0 items left</p>
+          <button class="clear">Clear Completed</button>
+        </div>
+      </div>
+    </div>
+    <dialog id="modal">
+      <h2 class="modelEdit">Todo Düzenle</h2>
+      <form method="dialog" autocomplete="off" id="addMovieForm">
+        <p><input required type="text" name="todos" placeholder="Görev Giriniz"></p>
+        <p><button class="modelEdit">Kaydet</button> <button type="button"
+            onclick="addMovieForm.reset();modal.close();">Vazgeç</button></p>
+        <input type="hidden" name="id" value="">
+      </form>
+    </dialog>
   </div>
 </body>
 
