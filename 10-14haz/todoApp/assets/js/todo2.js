@@ -1,49 +1,82 @@
-let btn = document.querySelector("#ekleBtn");
-let todoForm = document.querySelector(".todoForm");
-let liste = document.querySelector(".liste");
-let todoTxt = document.querySelector("#todoTxt");
-let deleteBtn = document.querySelector("#silBtn");
-let activeTodoCount = document.querySelector('.activeTodoCount');
-let activeTodoCounter = 0;
-let listeler = [];
+let todoForm = document.querySelector('.todoForm');
+let todos = document.querySelector('.todos');
+let clear = document.querySelector('.clear');
+let todoCount = document.querySelector('.todoCount');
+let modal = document.querySelector('#modal');
 
-if (typeof localStorage.listeler !== 'undefined') {
-    listeler = JSON.parse(localStorage.listeler);
-    renderListe();
+let todosList = [];
+let todoCounter = 0;
+
+if (localStorage.todosList) {
+  todosList = JSON.parse(localStorage.todosList);
+  todoCounter = todosList.length;
+  todoCount.innerText = `${todoCounter}`;
+  renderList();
 }
 
 function handleFormSubmit(e) {
-    e.preventDefault();
-    let formData = new FormData(todoForm);
-    let formObj = Object.fromEntries(formData);
-    listeler.push(formObj);
-    todoForm.reset();
-    save();
-    renderListe();
-    activeTodoCounter++;
-    activeTodoCount.innerText = activeTodoCounter;
+  e.preventDefault();
+  let formData = new FormData(todoForm);
+  let formObj = Object.fromEntries(formData);
+  todosList.push(formObj);
+  todoForm.reset();
+  todoCounter++;
+  todoCount.innerText = `${todoCounter}`;
+  renderList();
+  save();
 }
+
 todoForm.addEventListener('submit', handleFormSubmit);
 
-function renderListe() {
-    liste.innerHTML = '';
-    for (let i = 0; i < listeler.length; i++) {
-        liste.innerHTML += `<li><span>${listeler[i].todo}</span>
-<button><img src="/10-14haz/todoApp/assets/img/tick.svg" alt=""></img></button>
-<button><img class="trash" src="/10-14haz/todoApp/assets/img/trash.svg" alt=""></img></button></li>`;
-    }
+function renderList() {
+  todos.innerHTML = '';
+  for (let i = 0; i < todosList.length; i++) {
+    let todo = todosList[i].todo;
+    todos.innerHTML +=
+      `<div class="todos-list">
+          <ul><li><p>${todo} 
+          <button class="edit" onclick="openEditDialog(${i})">🖋️</button>
+           <button class="delete" onclick="deleteTodo(${i})">🚮</button>
+           </ul></p></li>
+       </div>`;
+  }
 }
 
 function save() {
-    localStorage.listeler = JSON.stringify(listeler);
+  localStorage.todosList = JSON.stringify(todosList);
 }
 
-
-function deleteTodo() {
-    localStorage.clear();
-    listeler = [];
-    renderListe ();
+function clearList() {
+  localStorage.clear();
+  todosList = [];
+  todoCounter = 0;
+  todoCount.innerText = `${todoCounter}`;
+  renderList();
 }
 
-deleteBtn.addEventListener("click", deleteTodo);
+clear.addEventListener('click', clearList);
 
+function openEditDialog(index) {
+  modal.querySelector('.modelEdit').innerText = "Todo Düzenle";
+
+  let todoInput = modal.querySelector('input[name="todos"]');
+  todoInput.value = todosList[index].todo;
+
+  modal.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    todosList[index].todo = todoInput.value;
+    renderList();
+    save();
+    modal.close();
+  });
+
+  modal.showModal();
+}
+
+function deleteTodo(index) {
+  todosList.splice(index, 1);
+  todoCounter--;
+  todoCount.innerText = `${todoCounter}`;
+  renderList();
+  save();
+}
