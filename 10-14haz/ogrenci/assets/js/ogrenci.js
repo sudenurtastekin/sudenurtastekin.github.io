@@ -48,7 +48,7 @@ function renderStudents() {
     sections[student.section].push(studentHTML);
   });
 
-  for (let section of sections) {
+  for (let section in sections) {
     let sectionHTML = `<div><h3>${section}</h3>${sections[section].join('')}</div>`;
     sectionsContainer.innerHTML += sectionHTML;
   }
