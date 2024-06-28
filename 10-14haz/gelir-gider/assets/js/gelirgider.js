@@ -68,7 +68,7 @@ function renderGelir() {
   for (let i = 0; i < gelirListesi.length; i++) {
     let gelirAmount = parseFloat(gelirListesi[i].gelir) || 0;
     gelir.innerHTML += `<div data-id="${gelirListesi[i].id}">
-                          <br>${gelirAmount}
+                          <br>${gelirAmount} TL
                           <a href="#" class="gelirEditBtn" data-id="${gelirListesi[i].id}">Düzenle</a>
                           <a href="#" class="gelirDeleteBtn" data-id="${gelirListesi[i].id}">Sil</a>
                         </div>`;
@@ -84,7 +84,7 @@ function renderGider() {
   for (let i = 0; i < giderListesi.length; i++) {
     let giderAmount = parseFloat(giderListesi[i].gider) || 0;
     gider.innerHTML += `<div data-id="${giderListesi[i].id}">
-                          <br>${giderAmount}
+                          <br>${giderAmount} TL
                           <a href="#" class="giderEditBtn" data-id="${giderListesi[i].id}">Düzenle</a>
                           <a href="#" class="giderDeleteBtn" data-id="${giderListesi[i].id}">Sil</a>
                         </div>`;
@@ -111,13 +111,13 @@ function calculateTotal() {
 
   if (karZarar > 0) {
     karZararToplam.style.color = 'green';
-    karZararToplam.textContent += ' TL kârdesiniz';
+    karZararToplam.textContent += ' TL kârdasınız';
   } else if (karZarar < 0) {
     karZararToplam.style.color = 'red';
     karZararToplam.textContent += ' TL zarardasınız';
   } else {
     karZararToplam.style.color = 'black';
-    karZararToplam.textContent += ' TL başa baştasınız';
+    karZararToplam.textContent += ' TL nötr';
   }
 
   localStorage.karZarar = karZarar.toFixed(2);
