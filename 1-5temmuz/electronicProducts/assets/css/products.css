@@ -1,0 +1,83 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#productList {
+  list-style: none;
+  color: black;
+  margin-bottom: 40px;
+}
+
+#salesForm {
+  margin-bottom: 30px;
+}
+
+h4 {
+  
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+h3 {
+  
+  font-size: 40px;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+
+li {
+  margin-bottom: 5px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 50px 150px;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: lightgrey;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: 2px solid lightgreen;
+  padding: 20px 25px;
+  background-color: lightgreen;
+  border-radius: 15px;
+  display: grid;
+}
+
+fieldset input {
+  background-color: whitesmoke;
+  border: 2px solid whitesmoke;
+  border-radius: 4px;
+  padding: 3px 2px;
+}
+
+button {
+  padding: 5px 5px;
+  background-color: #CAE3FF;
+  border: 2px solid #CAE3FF;
+  border-radius: 3px;
+}
+
+legend {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.formInRow {
+  display: flex;
+  gap: 10px;
+}
+
+#odemeTuru {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
