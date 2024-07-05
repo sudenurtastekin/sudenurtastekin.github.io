@@ -166,7 +166,7 @@ let sales = [];
 function createProductHtml(product) {
   return `<li>
     <label>
-      <input ${product.stock < 1 ? 'disabled' : ''} required type="radio" name="selectedProduct" value="${product.name}:${product.id}"> (${product.stock}) ${product.icon} ${product.name} ${product.origin} ${product.category} - ${product.price} 
+      <input ${product.stock < 1 ? 'disabled' : ''} required type="radio" name="selectedProduct" value="${product.name}:${product.id}"> (${product.stock}) ${product.icon} ${product.name}  (${product.origin}) ${product.category} - ${product.price} 
     </label>
   </li>`;
 }
