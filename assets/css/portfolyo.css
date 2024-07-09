@@ -292,6 +292,9 @@ footer header ul li img {
     width: 75%;
   }
 
+  .circle{
+    display: none;
+  }
   .slider {
     grid-template-columns: 1fr;
   }
@@ -318,6 +321,9 @@ footer header ul li img {
     width: 25px;
   }
 
+  .circle{
+    display: none;
+  }
   .skillsSection h1 {
     font-size: 2rem;
   }
