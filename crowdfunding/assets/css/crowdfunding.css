@@ -227,6 +227,8 @@ a {
   line-height: 22px;
   align-items: center;
   margin-bottom: 24px;
+  text-align: left;
+
 }
 
 .aboutParagraph {
@@ -235,6 +237,7 @@ a {
   line-height: 24px;
   color: #7A7A7A;
   margin-bottom: 40px;
+  text-align: left;
 }
 
 .infoItem {
